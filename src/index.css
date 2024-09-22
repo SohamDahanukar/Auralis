@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mier demi";
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+@layer utilities {
+  .group:hover .group-hover\:scale-x-100 {
+    transform: scaleX(100%);
+  }
+}
+
+/* POPUP ON HOME PAGE */
+@keyframes popUp {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.mobile-product {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.mobile-product.is-visible {
+  animation: popUp 0.4s ease-out forwards;
+}
